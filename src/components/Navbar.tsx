@@ -1,7 +1,13 @@
 // import React from 'react'
+import { NavLink } from 'react-router-dom' // use NavLink instead of Nav
 import logo from '../assets/images/YL-Logo-1.jpeg'
 
 const Navbar = () => {
+    const linkClass = ({ isActive }: {isActive: boolean}) =>
+        isActive ?
+            'bg-black text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2' :
+            'text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
+
     return (
         <>
             <nav className="bg-indigo-700 border-b border-indigo-500">
@@ -11,7 +17,7 @@ const Navbar = () => {
                             className="flex flex-1 items-center justify-center md:items-stretch md:justify-start"
                         >
                             {/* <!-- Logo --> */}
-                            <a className="flex flex-shrink-0 items-center mr-4" href="/index.html">
+                            <NavLink className="flex flex-shrink-0 items-center mr-4" to="/">
                                 <img
                                     className="h-10 w-auto"
                                     src={logo}
@@ -19,29 +25,36 @@ const Navbar = () => {
                                 />
                                 <span className="hidden md:block text-white text-2xl font-bold ml-2"
                                 >Youth Lantern</span>
-                            </a>
+                            </NavLink>
                             <div className="md:ml-auto">
                                 <div className="flex space-x-2">
-                                    <a
-                                        href="/index.html"
-                                        className="text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                                    >Home</a>
-                                    <a
-                                        href="/jobs.html"
-                                        className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                                    >Community Market</a>
-                                    <a
-                                        href="/jobs.html"
-                                        className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                                    >Job Posts</a>
-                                    {/* <a
-                                        href="/add-job.html"
-                                        className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                                    >Advertisers</a> */}
-                                    {/* <a
-                                        href="/add-job.html"
-                                        className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                                    >Profiles</a> */}
+
+                                    <NavLink
+                                        to="/"
+                                        className={linkClass}
+                                    >
+                                        Home
+                                    </NavLink>
+                                    <NavLink
+                                        to="/market"
+                                        className={linkClass}
+                                    >
+                                        Community Market
+                                    </NavLink>
+                                    <NavLink
+                                        to="/jobs"
+                                        className={linkClass}
+                                    >
+                                        Job Posts
+                                    </NavLink>
+                                    {/* <NavLink
+                                        to="/add-job.html"
+                                        className={linkClass}
+                                    >Advertisers</NavLink> */}
+                                    {/* <NavLink
+                                        to="/add-job.html"
+                                        className={linkClass}
+                                    >Profiles</NavLink> */}
                                 </div>
                             </div>
                         </div>
