@@ -1,6 +1,7 @@
 // import React from 'react'
 import { Outlet } from "react-router-dom"
-
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css'
 import Navbar from '../components/Navbar'
 
 const MainLayout = () => {
@@ -8,7 +9,7 @@ const MainLayout = () => {
         <>
             {/* <!-- Navbar on every page --> */}
             <Navbar />
-
+            <ToastContainer />
             {/* 
                 In React, the <Outlet /> component is part of the React Router 
                 library. It is used to render the child components defined in 
